@@ -13,27 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return view('home');
 });
 
-// Route jenis Closure
-Route::get('/profil', function () {
-    return "Ini adalah halaman profil.";
-})->name('profil');
-
-// Route name
-Route::get('/testname', function() {
-    return route('profil');
+Route::get('/about', function() {
+    return view('about');
 });
-
-// Route dengan Parameter
-Route::get('/profil/{id}', function($id) {
-    return $id;
-});
-
-// Route dengan Controller
-Route::get('/tescontroller', 'TesController@show');
-
-// Route dengan Resource
-Route::resource('siswa', 'SiswaController');
