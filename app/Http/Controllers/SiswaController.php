@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Siswa;
 
 class SiswaController extends Controller
 {
@@ -24,7 +25,7 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('data');
     }
 
     /**
@@ -35,7 +36,16 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //mass assignment
+        Siswa::create($request->all());
+
+        // Eloquent
+        $siswa = new Siswa();
+        $siswa->nama = $request->nama;
+        $siswa->telepon = $request->telepon;
+        $siswa->alamat = $request->alamat;
+        $siswa->save();
+        return redirect()->back();
     }
 
     /**
