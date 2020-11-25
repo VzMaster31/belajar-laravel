@@ -1,5 +1,5 @@
 @extends('master.master')
-@section('title', 'About')
+@section('title', 'Isi Data')
 
 @section('content')
 <form action="/data" method="post">

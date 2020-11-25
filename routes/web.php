@@ -23,3 +23,5 @@ Route::get('/about', function() {
 
 Route::get('/data', 'SiswaController@create');
 Route::post('/data', 'SiswaController@store');
+Route::get('/listdata', 'SiswaController@index');
+

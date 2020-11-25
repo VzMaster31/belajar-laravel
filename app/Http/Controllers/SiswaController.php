@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Siswa;
 
 class SiswaController extends Controller
@@ -14,7 +15,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return "Ini adalah halaman index";
+        $datasiswa = DB::table('siswa')->get();
+        return view('tampildata', compact('datasiswa'));
         // Diuganakan untuk menampilkan view data
     }
 
@@ -25,7 +27,7 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('data');
+        return view('isidata');
     }
 
     /**
@@ -37,7 +39,7 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         //mass assignment
-        Siswa::create($request->all());
+        // Siswa::create($request->all());
 
         // Eloquent
         $siswa = new Siswa();
