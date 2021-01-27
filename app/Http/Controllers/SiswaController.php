@@ -69,7 +69,8 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $siswa = Siswa::find($id);
+        return view('editData', compact('siswa'));
     }
 
     /**
@@ -81,7 +82,9 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $siswa = Siswa::updateOrcreate(['id' => $id], $request->all());
+
+        return redirect()->route('listData');
     }
 
     /**
@@ -92,6 +95,9 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $siswa->delete();
+        
+        return redirect()->route('listData');
     }
 }

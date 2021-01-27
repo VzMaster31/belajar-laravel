@@ -2,7 +2,8 @@
 @section('title', 'Isi Data')
 
 @section('content')
-<form action="/data" method="post">
+<div class="container">
+  <form action={{ route('storeData') }} method="post">
     @csrf
     <div class="form-group">
       <label for="exampleInputEmail1">Nama</label>
@@ -18,4 +19,5 @@
       </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+</div>
 @endsection

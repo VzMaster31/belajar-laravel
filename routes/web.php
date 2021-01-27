@@ -15,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
     return view('home');
-});
+})->name('homepage');
 
 Route::get('/about', function() {
     return view('about');
-});
+})->name('about');
 
-Route::get('/data', 'SiswaController@create');
-Route::post('/data', 'SiswaController@store');
-Route::get('/listdata', 'SiswaController@index');
+Route::get('/data', 'SiswaController@create')->name('createData');
+Route::post('/data', 'SiswaController@store')->name('storeData');
+
+Route::get('/data/view', 'SiswaController@index')->name('listData');
+
+Route::get('/data/{id}/edit', 'SiswaController@edit')->name('editData');
+Route::post('/data/{id}/update', 'SiswaController@update')->name('updateData');
+
+Route::get("/data/{id}/delete", "SiswaController@destroy")->name('deleteData');
 

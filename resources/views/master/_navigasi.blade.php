@@ -7,16 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href={{ route('homepage') }}>Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
+          <a class="nav-link" href={{ route('about') }}>About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/data">Isi Data</a>
+          <a class="nav-link" href={{ route('createData') }}>Isi Data</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/listdata">List Data</a>
+          <a class="nav-link" href={{ route('listData') }}>List Data</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
