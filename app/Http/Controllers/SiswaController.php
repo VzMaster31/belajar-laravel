@@ -41,6 +41,19 @@ class SiswaController extends Controller
         //mass assignment
         // Siswa::create($request->all());
 
+        $message = [
+            'required' => 'Pastikan field sudah terisi',
+            'digits' => 'Pastikan field angka tersebut 8 karakter'
+        ];
+
+        $validated = $request->validate([
+            'nama' => 'required',
+            'telepon' => 'required|digits:8',
+            'alamat' => 'required',
+        ], $message);
+    
+
+
         // Eloquent
         $siswa = new Siswa();
         $siswa->nama = $request->nama;
