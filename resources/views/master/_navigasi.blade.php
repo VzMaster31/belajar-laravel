@@ -18,7 +18,13 @@
         <li class="nav-item">
           <a class="nav-link" href={{ route('listData') }}>List Data</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
+          <a class="nav-link" href={{ route('login') }}>Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href={{ route('logout') }}>Logout</a>
+        </li>
+        {{-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown
           </a>
@@ -28,7 +34,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
-        </li>
+        </li> --}}
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>

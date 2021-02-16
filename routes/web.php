@@ -21,13 +21,21 @@ Route::get('/about', function() {
     return view('about');
 })->name('about');
 
-Route::get('/data', 'SiswaController@create')->name('createData');
-Route::post('/data', 'SiswaController@store')->name('storeData');
+Route::get('/login', 'AuthController@login')->name('login');
+Route::post('/login', 'AuthController@postlogin')->name('postlogin');
+Route::get('/logout', 'AuthController@logout')->name('logout');
 
-Route::get('/data/view', 'SiswaController@index')->name('listData');
+Route::group(['middleware' => 'auth'], function () {
+    
+    Route::get('/data', 'SiswaController@create')->name('createData');
+    Route::post('/data', 'SiswaController@store')->name('storeData');
+    
+    Route::get('/data/view', 'SiswaController@index')->name('listData');
+    
+    Route::get('/data/{id}/edit', 'SiswaController@edit')->name('editData');
+    Route::post('/data/{id}/update', 'SiswaController@update')->name('updateData');
+    
+    Route::get("/data/{id}/delete", "SiswaController@destroy")->name('deleteData');    
+});
 
-Route::get('/data/{id}/edit', 'SiswaController@edit')->name('editData');
-Route::post('/data/{id}/update', 'SiswaController@update')->name('updateData');
-
-Route::get("/data/{id}/delete", "SiswaController@destroy")->name('deleteData');
 
